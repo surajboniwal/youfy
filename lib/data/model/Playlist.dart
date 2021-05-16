@@ -4,12 +4,12 @@
 
 import 'dart:convert';
 
-Playlist playlistFromJson(String str) => Playlist.fromJson(json.decode(str));
+PlaylistM playlistFromJson(String str) => PlaylistM.fromJson(json.decode(str));
 
-String playlistToJson(Playlist data) => json.encode(data.toJson());
+String playlistToJson(PlaylistM data) => json.encode(data.toJson());
 
-class Playlist {
-  Playlist({
+class PlaylistM {
+  PlaylistM({
     this.kind,
     this.etag,
     this.nextPageToken,
@@ -24,7 +24,7 @@ class Playlist {
   List<Item> items;
   PageInfo pageInfo;
 
-  factory Playlist.fromJson(Map<String, dynamic> json) => Playlist(
+  factory PlaylistM.fromJson(Map<String, dynamic> json) => PlaylistM(
         kind: json["kind"],
         etag: json["etag"],
         nextPageToken: json["nextPageToken"],
@@ -164,11 +164,8 @@ class Thumbnails {
         thumbnailsDefault: Default.fromJson(json["default"]),
         medium: Default.fromJson(json["medium"]),
         high: Default.fromJson(json["high"]),
-        standard: json["standard"] == null
-            ? null
-            : Default.fromJson(json["standard"]),
-        maxres:
-            json["maxres"] == null ? null : Default.fromJson(json["maxres"]),
+        standard: json["standard"] == null ? null : Default.fromJson(json["standard"]),
+        maxres: json["maxres"] == null ? null : Default.fromJson(json["maxres"]),
       );
 
   Map<String, dynamic> toJson() => {

@@ -5,7 +5,7 @@ import 'package:spotifyclone/data/repo/api_repo.dart';
 class HomeController extends GetxController {
   var res;
   final apiRepo = ApiRepo();
-  List<Playlist> homePlaylists = [];
+  List<PlaylistM> homePlaylists = [];
 
   @override
   void onInit() {
@@ -35,7 +35,7 @@ class HomeController extends GetxController {
     ];
 
     await Future.forEach(playlistsToFetch, (list) async {
-      Playlist playlist = await apiRepo.getPlaylistItems(list['id'], 10);
+      PlaylistM playlist = await apiRepo.getPlaylistItems(list['id'], 10);
       playlist.title = list['slag'];
       homePlaylists.add(playlist);
     });

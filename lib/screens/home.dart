@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
               //Scren
               Expanded(
                 child: Container(
+                  padding: EdgeInsets.only(bottom: 110),
                   height: double.infinity,
                   child: GetBuilder<HomeController>(
                     init: _homeController,
